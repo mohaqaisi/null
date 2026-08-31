@@ -1,0 +1,66 @@
+{
+  "courses": [
+    {
+      "course_id": 1,
+      "course_name": "Cyber Security - Beginner",
+      "lessons": [
+        {
+          "video_id": "VIDEO_ID_001",
+          "video_title": "ما هو الأمن السيبراني؟",
+          "video_description": "شرح مفهوم الأمن السيبراني وأهميته.",
+          "video_photo": "https://example.com/image.jpg",
+          "video_size": "150 MB",
+          "teacher_name": "Mohammed Hamza",
+          "upload_date": "2026-08-31",
+          "test": {
+            "enabled": true,
+            "questions": [
+              {
+                "question": "ما هو الأمن السيبراني؟",
+                "options": [
+                  "حماية الأنظمة والشبكات والبيانات",
+                  "تصميم المواقع",
+                  "برمجة التطبيقات",
+                  "تحرير الصور"
+                ],
+                "correct_answer": 0
+              }
+            ]
+          }
+        },
+        {
+          "video_id": "VIDEO_ID_002",
+          "video_title": "أساسيات الشبكات",
+          "video_description": "شرح المفاهيم الأساسية للشبكات.",
+          "video_photo": "https://example.com/image2.jpg",
+          "video_size": "200 MB",
+          "teacher_name": "Mohammed Hamza",
+          "upload_date": "2026-08-31",
+          "test": {
+            "enabled": false,
+            "questions": []
+          }
+        }
+      ]
+    },
+    {
+      "course_id": 2,
+      "course_name": "Cyber Security - Intermediate",
+      "lessons": [
+        {
+          "video_id": "VIDEO_ID_003",
+          "video_title": "Network Fundamentals",
+          "video_description": "شرح أساسيات الشبكات.",
+          "video_photo": "https://example.com/image3.jpg",
+          "video_size": "250 MB",
+          "teacher_name": "Mohammed Hamza",
+          "upload_date": "2026-08-31",
+          "test": {
+            "enabled": false,
+            "questions": []
+          }
+        }
+      ]
+    }
+  ]
+}
