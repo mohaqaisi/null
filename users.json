@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "user_id": "USR-7f92a4c1",
+      "name": "Ahmed Ali",
+      "password_hash": "HASH_HERE",
+      "blocked": false,
+      "block_reason": null,
+      "courses": [1]
+    },
+    {
+      "user_id": "USR-b31e8d72",
+      "name": "Mohammed Hassan",
+      "password_hash": "HASH_HERE",
+      "blocked": true,
+      "block_reason": "مخالفة قوانين المعسكر",
+      "courses": [1, 2, 3]
+    }
+  ]
+}
