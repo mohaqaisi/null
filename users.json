@@ -3,7 +3,7 @@
     {
       "user_id": "USR-7f92a4c1",
       "name": "Ahmed Ali",
-      "password_hash": "5d41402abc4b2a76b9719d911017c592",
+      "password_hash": "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
       "blocked": false,
       "block_reason": null,
       "courses": [1]
@@ -11,7 +11,7 @@
     {
       "user_id": "USR-b31e8d72",
       "name": "Mohammed Hassan",
-      "password_hash": "5d41402abc4b2a76b9719d911017c592",
+      "password_hash": "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
       "blocked": true,
       "block_reason": "مخالفة قوانين المعسكر",
       "courses": [1, 2, 3]
