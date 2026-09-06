@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>// هيكر - hacked by Toxic</title>
+  <!-- خط شبيه بأجواء التيرمنال -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* إعادة تعيين */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0a0f0a;  /* خلفية سوداء خفيفة */
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 255, 100, 0.02) 0%, transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(0, 255, 150, 0.02) 0%, transparent 50%);
+      font-family: 'Share Tech Mono', 'Cairo', monospace;
+      padding: 1.2rem;
+    }
+
+    /* محاكاة شاشة التيرمنال */
+    .terminal {
+      max-width: 920px;
+      width: 100%;
+      background: #0c120c;
+      border-radius: 18px 18px 12px 12px;
+      box-shadow: 
+        0 0 40px rgba(0, 255, 100, 0.08),
+        inset 0 0 80px rgba(0, 30, 10, 0.6),
+        0 20px 40px rgba(0, 0, 0, 0.8);
+      border: 1px solid #1f4a2a;
+      padding: 1.8rem 2rem 2.2rem;
+      transition: box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* خطوط شبيهة بالشاشة */
+    .terminal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(0deg, 
+        rgba(0, 255, 100, 0.02) 0px, 
+        rgba(0, 255, 100, 0.02) 2px, 
+        transparent 2px, 
+        transparent 6px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* أزرار التيرمنال (إغلاق - تصغير - تكبير) */
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.8rem;
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid #1d3d28;
+      padding-bottom: 1rem;
+    }
+
+    .dot-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot-terminal {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #3a5a3a;
+      transition: 0.15s;
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+    }
+
+    .dot-terminal:nth-child(1) { background: #3d5a3d; }
+    .dot-terminal:nth-child(2) { background: #3d5a3d; }
+    .dot-terminal:nth-child(3) { background: #3d5a3d; }
+
+    .terminal-header:hover .dot-terminal:nth-child(1) { background: #ff5f56; }
+    .terminal-header:hover .dot-terminal:nth-child(2) { background: #ffbd2e; }
+    .terminal-header:hover .dot-terminal:nth-child(3) { background: #27c93f; }
+
+    .terminal-title {
+      color: #3b8f5a;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-right: 14px;
+      opacity: 0.7;
+      font-family: 'Share Tech Mono', monospace;
+      background: #142014;
+      padding: 0.2rem 1.2rem;
+      border-radius: 30px;
+      border: 1px solid #1f3d24;
+    }
+
+    /* المحتوى الرئيسي – يحاكي برومبت */
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* سطر البرومبت (الدخول) */
+    .prompt-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin-bottom: 1.8rem;
+      color: #63b87a;
+      font-size: 1.1rem;
+      background: rgba(0, 20, 0, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border-left: 3px solid #2b8f4a;
+    }
+
+    .prompt-sign {
+      color: #4cdb80;
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-shadow: 0 0 8px #1f9f4a;
+    }
+
+    .prompt-user {
+      color: #8cd4a0;
+    }
+
+    .prompt-path {
+      color: #467a5a;
+      font-size: 0.9rem;
+    }
+
+    .blinking-cursor {
+      display: inline-block;
+      width: 12px;
+      height: 24px;
+      background: #4cdb80;
+      box-shadow: 0 0 18px #2bc96a;
+      animation: blink 1s step-end infinite;
+      margin-right: 6px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* النص الرئيسي hacked by Toxic بأسلوب هيكر */
+    .greeting-hacker {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(3.8rem, 16vw, 8rem);
+      font-weight: 700;
+      letter-spacing: 8px;
+      color: #2bd46a;
+      text-shadow: 
+        0 0 15px #1faa4a,
+        0 0 40px #0f7a2a,
+        0 0 80px #0a4a1a;
+      background: linear-gradient(180deg, #9bffb0, #2bd46a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin: 0.8rem 0 0.6rem;
+      word-break: break-word;
+      filter: drop-shadow(0 0 30px rgba(0, 255, 100, 0.15));
+      transition: all 0.2s;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* تأثير كتابة قديم (خطوط) */
+    .greeting-hacker::after {
+      content: "█";
+      color: #2bd46a;
+      font-size: 0.9em;
+      -webkit-text-fill-color: #2bd46a;
+      animation: blink 0.9s step-end infinite;
+      margin-right: 6px;
+      display: inline-block;
+      text-shadow: 0 0 20px #1faa4a;
+    }
+
+    /* خط تحت النص (زخرفة) */
+    .hacker-divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3ad67a, #1e9e4a, #3ad67a, transparent);
+      margin: 1.2rem 0 1.6rem;
+      box-shadow: 0 0 25px #2ac96a;
+      opacity: 0.6;
+    }
+
+    /* معلومات إضافية (IP, port, status) */
+    .sys-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.8rem;
+      background: #0e1a12;
+      padding: 0.8rem 1.4rem;
+      border-radius: 40px;
+      border: 1px solid #1f4a2a;
+      margin-top: 0.4rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: #5caf7a;
+      box-shadow: inset 0 0 30px rgba(0, 30, 0, 0.4);
+      justify-content: center;
+    }
+
+    .sys-info span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sys-info .label {
+      color: #3f7a52;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+
+    .sys-info .value {
+      color: #8dffb0;
+      text-shadow: 0 0 8px #1f9f4a;
+    }
+
+    .status-led {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #30d46a;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #2bd46a;
+      animation: pulse-dot 1.4s infinite alternate;
+    }
+
+    @keyframes pulse-dot {
+      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 5px #2bd46a; }
+      100% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 30px #4cdb80; }
+    }
+
+    /* زر بأسلوب الهاكر */
+    .hacker-btn {
+      background: transparent;
+      border: 1.5px solid #2aa54a;
+      color: #80e0a0;
+      padding: 0.8rem 2.2rem;
+      border-radius: 40px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      backdrop-filter: blur(2px);
+      background: rgba(10, 30, 10, 0.3);
+      box-shadow: 0 0 20px rgba(0, 200, 80, 0.05);
+      transition: all 0.2s;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .hacker-btn:hover {
+      background: #1b6a34;
+      color: #d6ffdd;
+      border-color: #7cffa0;
+      box-shadow: 0 0 45px #2bd46a, inset 0 0 20px #1f9f4a;
+      transform: scale(1.02);
+    }
+
+    .hacker-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* شريط سفلي (ملحقات) */
+    .footer-hacker {
+      margin-top: 2.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #1d3d28;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      color: #3b7a4e;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-hacker .left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-hacker .right {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-hacker a {
+      color: #5baa70;
+      text-decoration: none;
+      border-bottom: 1px dashed #1f4a2a;
+      transition: 0.15s;
+    }
+
+    .footer-hacker a:hover {
+      color: #9dffb0;
+      border-bottom-color: #4cdb80;
+    }
+
+    /* استجابة */
+    @media (max-width: 550px) {
+      .terminal { padding: 1.2rem; }
+      .prompt-line { font-size: 0.9rem; flex-wrap: wrap; }
+      .greeting-hacker { font-size: 3.5rem; letter-spacing: 4px; }
+      .sys-info { flex-direction: column; align-items: center; gap: 0.4rem; }
+      .footer-hacker { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* وميض خفيف للشاشة */
+    .terminal {
+      animation: flicker 3s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      3% { opacity: 0.92; }
+      6% { opacity: 1; }
+      7% { opacity: 0.96; }
+      8% { opacity: 1; }
+      50% { opacity: 1; }
+      53% { opacity: 0.94; }
+      55% { opacity: 1; }
+    }
+
+    /* تأثير scan line إضافي */
+    .scan-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(0deg, 
+        rgba(0, 255, 100, 0.015) 0px,
+        rgba(0, 255, 100, 0.015) 3px,
+        transparent 3px,
+        transparent 8px);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* تحريك النص قليلاً */
+    .greeting-hacker span {
+      display: inline-block;
+      transition: 0.15s;
+    }
+    .greeting-hacker span:hover {
+      transform: scale(1.1) rotate(-1deg);
+      filter: brightness(1.5);
+      text-shadow: 0 0 40px #3ad67a;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="terminal">
+  <!-- خطوط المسح (تأثير شاشة قديمة) -->
+  <div class="scan-line"></div>
+
+  <!-- رأس التيرمنال -->
+  <div class="terminal-header">
+    <div class="dot-group">
+      <span class="dot-terminal"></span>
+      <span class="dot-terminal"></span>
+      <span class="dot-terminal"></span>
+    </div>
+    <div class="terminal-title">⚡ root@hacklab ~ </div>
+  </div>
+
+  <!-- المحتوى -->
+  <div class="content">
+
+    <!-- سطر البرومبت -->
+    <div class="prompt-line">
+      <span class="prompt-sign">➜</span>
+      <span class="prompt-user">visitor</span>
+      <span class="prompt-path">~/terminal/hacked by Toxic</span>
+      <span class="blinking-cursor"></span>
+    </div>
+
+    <!-- النص الرئيسي hacked by Toxic (بأسلوب هيكر) -->
+    <div class="greeting-hacker" id="hackerGreeting">
+      hacked by Toxic
+    </div>
+
+    <!-- فاصل هيكر -->
+    <div class="hacker-divider"></div>
+
+    <!-- معلومات النظام (IP, port, status) -->
+    <div class="sys-info">
+      <span><span class="label">⚙️ IP</span> <span class="value">192.168.0.1</span></span>
+      <span><span class="label">🔌 PORT</span> <span class="value">31337</span></span>
+      <span><span class="label">📡 STATUS</span> <span class="value"><span class="status-led"></span> ONLINE</span></span>
+      <span><span class="label">🕒 UPTIME</span> <span class="value" id="uptime">00:00:00</span></span>
+    </div>
+
+    <!-- زر هيكر -->
+    <button class="hacker-btn" id="hackBtn">
+      <span style="font-size:1.4rem;">⧩</span>  Execute
+    </button>
+
+    <!-- تذييل هيكر -->
+    <div class="footer-hacker">
+      <div class="left">
+        <span>❯</span> <span>GREEN HACKER v2.0</span>
+        <span style="color:#2a6a3a;">|</span>
+        <span>#root</span>
+      </div>
+      <div class="right">
+        <a href="#" id="matrixLink">[matrix]</a>
+        <a href="#" id="shellLink">[shell]</a>
+        <span style="color:#2a6a3a;">|</span>
+        <span id="clockDisplay">00:00:00</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function() {
+    // عناصر
+    const greetingEl = document.getElementById('hackerGreeting');
+    const hackBtn = document.getElementById('hackBtn');
+    const uptimeEl = document.getElementById('uptime');
+    const clockEl = document.getElementById('clockDisplay');
+
+    // نصوص هيكر بديلة
+    const hackerMessages = [
+      'hacked by Toxic',
+      'ROOT',
+      'ACCESS',
+      'OVERRIDE',
+      'hacked by Toxic',
+      'SHELL',
+      'HACK',
+      'hacked by Toxic'
+    ];
+
+    let msgIndex = 0;
+
+    // تحديث النص الرئيسي
+    function updateHackerText(newText) {
+      // نحافظ على الإطار المؤثر (بما أنه مزود بـ ::after)
+      greetingEl.textContent = newText;
+    }
+
+    // دالة تغيير النص (زر + تلقائي)
+    function rotateMessage() {
+      msgIndex = (msgIndex + 1) % hackerMessages.length;
+      updateHackerText(hackerMessages[msgIndex]);
+      // تأثير وميض عند التغيير
+      greetingEl.style.transition = '0.1s';
+      greetingEl.style.filter = 'brightness(2) drop-shadow(0 0 60px #2bd46a)';
+      setTimeout(() => {
+        greetingEl.style.filter = '';
+      }, 180);
+    }
+
+    // زر execute
+    hackBtn.addEventListener('click', function(e) {
+      rotateMessage();
+      // تأثير على الزر
+      this.style.transform = 'scale(0.92)';
+      setTimeout(() => this.style.transform = '', 150);
+      // وميض الشاشة
+      document.querySelector('.terminal').style.boxShadow = '0 0 80px #2bd46a, inset 0 0 60px #1f9f4a';
+      setTimeout(() => {
+        document.querySelector('.terminal').style.boxShadow = '';
+      }, 400);
+    });
+
+    // النقر على النص نفسه
+    greetingEl.style.cursor = 'pointer';
+    greetingEl.addEventListener('click', function() {
+      rotateMessage();
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => this.style.transform = '', 120);
+    });
+
+    // تبديل تلقائي كل 7 ثوانٍ
+    let autoSwitch = setInterval(rotateMessage, 7000);
+
+    // إعادة تعيين المؤقت عند الضغط
+    hackBtn.addEventListener('click', function() {
+      clearInterval(autoSwitch);
+      autoSwitch = setInterval(rotateMessage, 7000);
+    });
+
+    // ساعة (تنسيق 00:00:00)
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      clockEl.textContent = h + ':' + m + ':' + s;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // عداد uptime (منذ تحميل الصفحة)
+    let startTime = Date.now();
+    function updateUptime() {
+      const diff = Math.floor((Date.now() - startTime) / 1000);
+      const hours = String(Math.floor(diff / 3600)).padStart(2, '0');
+      const minutes = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+      const seconds = String(diff % 60).padStart(2, '0');
+      uptimeEl.textContent = hours + ':' + minutes + ':' + seconds;
+    }
+    updateUptime();
+    setInterval(updateUptime, 1000);
+
+    // الروابط (تعمل كأزرار مزيفة)
+    document.getElementById('matrixLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      rotateMessage();
+      // تغيير النص إلى "MATRIX"
+      updateHackerText('MATRIX');
+      msgIndex = (hackerMessages.indexOf('MATRIX') + 1) % hackerMessages.length;
+    });
+
+    document.getElementById('shellLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      rotateMessage();
+      updateHackerText('SHELL');
+      msgIndex = (hackerMessages.indexOf('SHELL') + 1) % hackerMessages.length;
+    });
+
+    // تغيير عشوائي عند تحريك الماوس على التيرمنال (لإضفاء حيوية)
+    document.querySelector('.terminal').addEventListener('mouseenter', function() {
+      // لا شيء قوي، فقط وميض بسيط
+      this.style.borderColor = '#3aaf5a';
+    });
+    document.querySelector('.terminal').addEventListener('mouseleave', function() {
+      this.style.borderColor = '#1f4a2a';
+    });
+
+    console.log('🔰 Hacker Terminal Green Theme Loaded');
+  })();
+</script>
+
+</body>
+</html>
