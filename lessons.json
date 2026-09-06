@@ -42,6 +42,49 @@
           }
         }
       ]
+    },
+{
+      "course_id": 2,
+      "course_name": "اساسيات الشبكات",
+      "lessons": [
+        {
+          "video_id": "uuUX3dsqyYA",
+          "video_title": "تجربة؟2",
+          "video_description": "هذا النص تجريبي حتى الأن.",
+          "video_photo": "https://i.top4top.io/p_3901pcxhz1.jpg",
+          "video_size": "150 MB",
+          "teacher_name": "Mohammed Hamza",
+          "upload_date": "2026-08-31",
+          "test": {
+            "enabled": true,
+            "questions": [
+              {
+                "question": "ما هو الأمن السيبراني؟",
+                "options": [
+                  "حماية الأنظمة والشبكات والبيانات",
+                  "تصميم المواقع",
+                  "برمجة التطبيقات",
+                  "تحرير الصور"
+                ],
+                "correct_answer": 0
+              }
+            ]
+          }
+        },
+        {
+          "video_id": "Rd0R7OJUMk4",
+          "video_title": "هلو مصطفى2",
+          "video_description": "شرح المفاهيم الأساسية للشبكات.",
+          "video_photo": "https://i.top4top.io/p_3901unslr1.png",
+          "video_size": "50 KB",
+          "teacher_name": "Mohammed Hamza",
+          "upload_date": "2026-09-06",
+          "test": {
+            "enabled": false,
+            "questions": []
+          }
+        }
+      ]
     }
   ]
 }
