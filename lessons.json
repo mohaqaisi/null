@@ -2,13 +2,13 @@
   "courses": [
     {
       "course_id": 1,
-      "course_name": "Cyber Security - Beginner",
+      "course_name": "اساسيات الحاسوب ( المرحلة التأهيلية )",
       "lessons": [
         {
-          "video_id": "VIDEO_ID_001",
-          "video_title": "ما هو الأمن السيبراني؟",
-          "video_description": "شرح مفهوم الأمن السيبراني وأهميته.",
-          "video_photo": "https://example.com/image.jpg",
+          "video_id": "uuUX3dsqyYA",
+          "video_title": "تجربة؟",
+          "video_description": "هذا النص تجريبي حتى الأن.",
+          "video_photo": "https://i.top4top.io/p_3901pcxhz1.jpg",
           "video_size": "150 MB",
           "teacher_name": "Mohammed Hamza",
           "upload_date": "2026-08-31",
@@ -43,24 +43,5 @@
         }
       ]
     },
-    {
-      "course_id": 2,
-      "course_name": "Cyber Security - Intermediate",
-      "lessons": [
-        {
-          "video_id": "VIDEO_ID_003",
-          "video_title": "Network Fundamentals",
-          "video_description": "شرح أساسيات الشبكات.",
-          "video_photo": "https://example.com/image3.jpg",
-          "video_size": "250 MB",
-          "teacher_name": "Mohammed Hamza",
-          "upload_date": "2026-08-31",
-          "test": {
-            "enabled": false,
-            "questions": []
-          }
-        }
-      ]
-    }
   ]
 }
